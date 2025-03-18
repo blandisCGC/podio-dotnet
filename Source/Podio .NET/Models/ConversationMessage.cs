@@ -13,7 +13,7 @@ namespace PodioAPI.Models
         public int? EmbedId { get; set; }
 
         [JsonProperty(PropertyName = "embed_file_id")]
-        public int? EmbedFileId { get; set; }
+        public long? EmbedFileId { get; set; }
 
         [JsonProperty(PropertyName = "text")]
         public string Text { get; set; }

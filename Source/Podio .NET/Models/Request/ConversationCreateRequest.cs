@@ -12,7 +12,7 @@ namespace PodioAPI.Models.Request
         public string Text { get; set; }
 
         [JsonProperty("file_ids", NullValueHandling = NullValueHandling.Ignore)]
-        public List<int> FileIds { get; set; }
+        public List<long> FileIds { get; set; }
 
         [JsonProperty("participants", NullValueHandling = NullValueHandling.Ignore)]
         public List<int> Participants { get; set; }

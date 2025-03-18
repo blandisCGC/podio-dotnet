@@ -51,6 +51,7 @@ namespace PodioAPI.Utils.ItemFields
                     return null;
                 }
             }
+            set { setStartDate(value, "start_date"); }
         }
 
         public DateTime? EndDate
@@ -81,6 +82,7 @@ namespace PodioAPI.Utils.ItemFields
                     return null;
                 }
             }
+            set { setStartTime(value, "start_time"); }
         }
 
         public string EndTime
@@ -96,6 +98,7 @@ namespace PodioAPI.Utils.ItemFields
                     return null;
                 }
             }
+            set { setEndTime(value, "end_time"); }
         }
 
         protected void setDateTime(DateTime? value, string attribute)
@@ -107,6 +110,39 @@ namespace PodioAPI.Utils.ItemFields
                 stringValue = String.Format("{0:yyyy-MM-dd HH:mm:ss}", value);
             }
             this.Values.First()[attribute] = stringValue;
+        }
+
+        protected void setStartDate(DateTime? value, string attribute)
+        {
+            EnsureValuesInitialized(true);
+            string stringValue = null;
+            if (value != null)
+            {
+                stringValue = String.Format("{0:yyyy-MM-dd}", value);
+            }
+            this.Values.First()[attribute] = stringValue;
+        }
+        protected void setStartTime(string value, string attribute)
+        {
+            EnsureValuesInitialized(includeFirstChildDict: true);
+            string stringValue = null;
+            if (!string.IsNullOrEmpty(value))
+            {
+                stringValue = String.Format("{0:HH:mm:ss}", value);
+            }
+
+            base.Values.First()[attribute] = stringValue;
+        }
+        protected void setEndTime(string value, string attribute)
+        {
+            EnsureValuesInitialized(includeFirstChildDict: true);
+            string stringValue = null;
+            if (!string.IsNullOrEmpty(value))
+            {
+                stringValue = String.Format("{0:HH:mm:ss}", value);
+            }
+
+            base.Values.First()[attribute] = stringValue;
         }
     }
 }

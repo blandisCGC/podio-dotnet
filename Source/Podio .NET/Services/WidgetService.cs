@@ -53,7 +53,7 @@ namespace PodioAPI.Services
                 config = config
             };
 
-             return await _podio.Put<dynamic>(url, requestData);
+            return await _podio.Put<dynamic>(url, requestData);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace PodioAPI.Services
         public async Task<dynamic> DeleteWidget(int widgetId)
         {
             string url = string.Format("/widget/{0}", widgetId);
-           return   await _podio.Delete<dynamic>(url);
+            return  await _podio.Delete<dynamic>(url);
         }
 
         /// <summary>

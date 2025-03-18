@@ -25,7 +25,7 @@ namespace PodioAPI.Models
         ///     The file id of the avatar
         /// </summary>
         [JsonProperty("avatar", NullValueHandling = NullValueHandling.Ignore)]
-        public int Avatar { get; set; }
+        public long Avatar { get; set; }
 
         public DateTime? BirthDate
         {

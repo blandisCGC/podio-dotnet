@@ -15,7 +15,7 @@ namespace PodioAPI.Models
         public string Type { get; set; }
 
         [JsonProperty("logo")]
-        public int? Logo { get; set; }
+        public long? Logo { get; set; }
 
         [JsonProperty("url")]
         public string Url { get; set; }

@@ -3,11 +3,11 @@ namespace PodioAPI.Services
 {
     public class ReminderService
     {
-        private readonly Podio  _podio;
+        private readonly Podio _podio;
 
         public ReminderService(Podio currentInstance)
         {
-             _podio = currentInstance;
+            _podio = currentInstance;
         }
 
         /// <summary>

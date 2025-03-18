@@ -26,7 +26,7 @@ namespace PodioAPI.Services
             {
                 question_option_id = questionOptionId
             };
-             return await _podio.Post<dynamic>(url, requestData);
+            return await _podio.Post<dynamic>(url, requestData);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace PodioAPI.Services
         /// <param name="questionText">The text of the question.</param>
         /// <param name="options">The list of text for the option</param>
         /// <returns></returns>
-        public async Task<int> CreateQuestion(string refType, int refId, string questionText, List<string> options)
+        public async Task<int> CreateQuestion(string refType, long refId, string questionText, List<string> options)
         {
             string url = string.Format("/question/{0}/{1}/", refType, refId);
             dynamic requestData = new

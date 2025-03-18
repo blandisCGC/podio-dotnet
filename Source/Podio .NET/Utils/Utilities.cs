@@ -26,6 +26,13 @@ namespace PodioAPI.Utils
             return string.Empty;
         }
 
+        internal static string ArrayToCSV(long[] array, string splitter = ",")
+        {
+            if (array != null && array.Length > 0)
+                return string.Join(splitter, array);
+
+            return string.Empty;
+        }
         /// <summary>
         ///     Convert dictionay to to query string
         /// </summary>

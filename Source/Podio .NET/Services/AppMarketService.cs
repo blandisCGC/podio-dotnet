@@ -97,7 +97,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <returns></returns>
-        public async Task<List<AppMarketShare>> GetShareByReference(string refType, int refId)
+        public async Task<List<AppMarketShare>> GetShareByReference(string refType, long refId)
         {
             string url = string.Format("/app_store/{0}/{1}/", refType, refId);
             return await _podio.Get<List<AppMarketShare>>(url);
@@ -217,7 +217,7 @@ namespace PodioAPI.Services
         /// <param name="scope">The scope the app should be shared with, either "public" or "private", defaults to "public"</param>
         /// <returns>The id of the newly created share</returns>
         public async Task<int> ShareApp(string refType, int refId, string name, string abstracts, string description,
-            string language, int[] categoryId, int[] fileId, int videoId, List<string> features, int childrenId,
+            string language, int[] categoryId, long[] fileId, int videoId, List<string> features, int childrenId,
             string scope = "public")
         {
             string url = "/app_store/";
@@ -237,7 +237,7 @@ namespace PodioAPI.Services
                 scope = scope
             };
             dynamic response = await _podio.Post<dynamic>(url, requestData);
-            return (int) response["share_id"];
+            return (int)response["share_id"];
         }
 
         /// <summary>
@@ -264,7 +264,7 @@ namespace PodioAPI.Services
         /// <param name="fileId">The file ids to use as screenshots for the share</param>
         /// <param name="videoId">The youtube id of a introduction video, if any</param>
         public async Task<dynamic> UpdateShare(int shareId, string name, string abstracts, string description, string language,
-            int[] categoryId, int[] fileId, int? videoId = null)
+            int[] categoryId, long[] fileId, int? videoId = null)
         {
             string url = string.Format("/app_store/{0}", shareId);
             dynamic requestData = new
@@ -277,7 +277,7 @@ namespace PodioAPI.Services
                 file_ids = fileId,
                 video = videoId
             };
-             return await _podio.Put<dynamic>(url, requestData);
+            return await _podio.Put<dynamic>(url, requestData);
         }
     }
 }

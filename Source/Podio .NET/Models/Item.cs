@@ -9,7 +9,7 @@ namespace PodioAPI.Models
     public class Item
     {
         [JsonProperty("item_id")]
-        public int ItemId { get; set; }
+        public long ItemId { get; set; }
 
         [JsonProperty("external_id")]
         public string ExternalId { get; set; }
@@ -114,7 +114,7 @@ namespace PodioAPI.Models
         public Grant Grant { get; set; }
 
         [JsonProperty("file_ids")]
-        public List<int> FileIds { get; set; }
+        public List<long> FileIds { get; set; }
 
         [JsonProperty("tasks")]
         public List<Task> Tasks { get; set; }
