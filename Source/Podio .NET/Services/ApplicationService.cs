@@ -78,7 +78,7 @@ namespace PodioAPI.Services
         /// <param name="includeInactive"> True if inactive apps should be included, false otherwise.Default value: false </param>
         /// <param name="additionalAttributes">Additional attributes to include in query string</param>
         /// <returns></returns>
-        public async Task<List<Application>> GetAppsBySpace (int spaceId, bool includeInactive = false, Dictionary<string, string> additionalAttributes = null)
+        public async Task<List<Application>> GetAppsBySpace(int spaceId, bool includeInactive = false, Dictionary<string, string> additionalAttributes = null)
         {
             var requestData = new Dictionary<string, string>()
             {
@@ -216,7 +216,7 @@ namespace PodioAPI.Services
             {
                 {"delete_values", deleteValues.ToString()}
             };
-           
+
             return await _podio.Delete<ApplicationRevision>(url, requestData);
         }
 
@@ -355,7 +355,7 @@ namespace PodioAPI.Services
         /// <returns></returns>
         public async Task<int> InstallApp(int appId, int spaceId, string[] features = null)
         {
-            features = features == null ? new string[] {"items"} : features;
+            features = features == null ? new string[] { "items" } : features;
             string url = string.Format("/app/{0}/install", appId);
             dynamic requestData = new
             {
@@ -363,7 +363,7 @@ namespace PodioAPI.Services
                 features = features
             };
             dynamic response = await _podio.Post<dynamic>(url, requestData);
-            return (int) response["app_id"];
+            return (int)response["app_id"];
         }
 
         /// <summary>
@@ -423,7 +423,7 @@ namespace PodioAPI.Services
                 Fields = application.Fields
             };
             dynamic response = await _podio.Post<dynamic>(url, requestDate);
-            return (int) response["app_id"];
+            return (int)response["app_id"];
         }
 
         /// <summary>
@@ -448,7 +448,7 @@ namespace PodioAPI.Services
             */
             string url = string.Format("/app/{0}/field/", appId);
             dynamic response = await _podio.Post<dynamic>(url, field);
-            return (int) response["field_id"];
+            return (int)response["field_id"];
         }
 
         /// <summary>

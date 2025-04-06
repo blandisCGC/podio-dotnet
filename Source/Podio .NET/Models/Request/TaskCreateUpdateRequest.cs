@@ -63,7 +63,7 @@ namespace PodioAPI.Models.Request
         ///     The list of files to attach to this task
         /// </summary>
         [JsonProperty("file_ids", NullValueHandling = NullValueHandling.Ignore)]
-        public IEnumerable<int> FileIds { get; set; }
+        public IEnumerable<long> FileIds { get; set; }
 
         /// <summary>
         ///     The list of labels in text form

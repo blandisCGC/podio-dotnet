@@ -63,7 +63,7 @@ namespace PodioAPI.Services
         public async Task<dynamic> RemoveGrant(string refType, dynamic refId, int userId)
         {
             string url = string.Format("/grant/{0}/{1}/{2}", refType, refId, userId);
-           return await _podio.Delete<dynamic>(url);
+            return await _podio.Delete<dynamic>(url);
         }
 
         /// <summary>
@@ -101,8 +101,8 @@ namespace PodioAPI.Services
         /// <param name="action">The action required of the people, either "view", "comment" or "rate", or left out</param>
         /// <param name="message">Any special message to the users</param>
         /// <returns></returns>
-        public async Task<CreatedGrant> CreateGrant(string refType, int refId, List<Ref> people, string action,
-            string message = null)
+        //public async Task<CreatedGrant> CreateGrant(string refType, int refId, List<Ref> people, string action, string message = null)
+        public async Task<CreatedGrant> CreateGrant(string refType, long refId, List<Ref> people, string action, string message = null)
         {
             string url = string.Format("/grant/{0}/{1}", refType, refId);
             dynamic requestData = new

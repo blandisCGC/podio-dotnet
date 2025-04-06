@@ -19,7 +19,7 @@ namespace PodioAPI.Models
         public string Link { get; set; }
 
         [JsonProperty("avatar", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Avatar { get; set; }
+        public long? Avatar { get; set; }
 
         [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
         public string Status { get; set; }

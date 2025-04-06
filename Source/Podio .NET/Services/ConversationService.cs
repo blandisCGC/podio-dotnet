@@ -51,7 +51,7 @@ namespace PodioAPI.Services
         /// <param name="refId"></param>
         /// <param name="conversationCreateRequest"></param>
         /// <returns></returns>
-        public async Task<Conversation> CreateConversationOnObject(string refType, int refId,
+        public async Task<Conversation> CreateConversationOnObject(string refType, long refId,
             ConversationCreateRequest conversationCreateRequest)
         {
             string url = string.Format("/conversation/{0}/{1}/", refType, refId);
@@ -127,7 +127,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <returns></returns>
-        public async Task<List<Conversation>> GetConversationsOnObject(string refType, int refId)
+        public async Task<List<Conversation>> GetConversationsOnObject(string refType, long refId)
         {
             string url = string.Format("/conversation/{0}/{1}/", refType, refId);
             return await _podio.Get<List<Conversation>>(url);
@@ -233,7 +233,7 @@ namespace PodioAPI.Services
         /// </param>
         /// <param name="embedUrl">The url to be attached</param>
         /// <returns></returns>
-        public async Task<ConversationEvent> ReplyToConversation(int converstionId, string text, List<int> fileIds = null,
+        public async Task<ConversationEvent> ReplyToConversation(int converstionId, string text, List<long> fileIds = null,
             int? embedId = null, string embedUrl = null)
         {
             string url = string.Format("/conversation/{0}/reply/v2", converstionId);
